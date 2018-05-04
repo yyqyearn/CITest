@@ -9,6 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *countLB;
+@property (assign,nonatomic)int count;
 
 @end
 
@@ -16,12 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additionaetup after loading the view, typically from a nib.
-    
-    
-    
+    self.count = 0;
+}
+- (void)setCount:(int)count{
+    _count = count;
+    self.countLB.text = [NSString stringWithFormat:@"%d",_count];
 }
 
+- (IBAction)addBtnClick:(UIButton *)sender {
+    self.count++;
+}
+- (IBAction)crashBtnClick:(UIButton *)sender {
+    NSAssert(0, @"crash");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

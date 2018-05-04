@@ -34,7 +34,24 @@
 
 - (void)testExample {
     // Use recording to get started writing UI tests.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    [self testWithPageA];
+}
+
+- (void)testWithPageA{
+    
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *addButton = app.buttons[@"add"];
+    [addButton tap];
+    [addButton tap];
+    [addButton tap];
+    [app.buttons[@"Crash"] tap];
+    [addButton tap];
+    [addButton tap];
+    [addButton tap];
+  
+    
+    
 }
 
 @end
